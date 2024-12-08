@@ -17,6 +17,16 @@ stop_listening = False
 counter = 0
 running = False
 recognized_text_all = ""
+VOICE_EFFECTS = [
+    "Chipmunk",
+    "Robot",
+    "Slow Motion",
+    "Fast Forward",
+    "Echo",
+    "Deep Voice",
+    "Whisper",
+    "Bass Boost"
+]
 
 #define functions
 #text to speech conversion
@@ -85,6 +95,12 @@ def update_speed_value(event):
         speed_key = selected_speed.split(' - ')[0]
         # Đặt giá trị key vào combobox
         speed_combobox.set(speed_key)
+
+# Hàm cập nhật giá trị hiển thị trong combobox
+def update_voice_value(event):
+    selected_voice = voice_combobox.get()
+    if selected_voice:
+        speed_combobox.set(selected_voice)
 
 def show_speech_to_text():
     # Hàm dừng nhận diện
@@ -435,16 +451,29 @@ accent_combobox.bind("<<ComboboxSelected>>", update_combobox_value)
 
 # Speed Dropdown
 speed_label = ttk.Label(window, text="Speed:")
-speed_label.grid(row=4, column=0, padx=10, pady=5, sticky='w')
+speed_label.grid(row=3, column=0, padx=10, pady=5, sticky='w')
 
 speed_combobox = ttk.Combobox(
     window, 
     values=["fast - Nhanh", "slow - Chậm"], 
     state="readonly"
 )
-speed_combobox.grid(row=4, column=1, padx=10, pady=10, sticky='ew')
+speed_combobox.grid(row=3, column=1, padx=10, pady=10, sticky='ew')
 speed_combobox.set("Select Speed")
 speed_combobox.bind("<<ComboboxSelected>>", update_speed_value)
+
+# voice Dropdown
+voice_label = ttk.Label(window, text="Voice:")
+voice_label.grid(row=4, column=0, padx=10, pady=5, sticky='w')
+
+voice_combobox = ttk.Combobox(
+    window, 
+    values=VOICE_EFFECTS, 
+    state="readonly"
+)
+voice_combobox.grid(row=4, column=1, padx=10, pady=10, sticky='ew')
+voice_combobox.set("Select voice")
+voice_combobox.bind("<<ComboboxSelected>>", update_voice_value)
 
 # Buttons Frame
 button_frame = ttk.Frame(window)
