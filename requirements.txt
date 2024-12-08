@@ -1,0 +1,5 @@
+gTTS==2.5.4
+speech_recognition==3.11.0
+playsound==1.2.2
+googletrans==4.0.0rc1
+pydub==0.25.1
