@@ -35,6 +35,7 @@ def text_to_speech():
     translator = Translator()
     text = text_entry.get("1.0", "end-1c")
     language = accent_combobox.get()  
+    voice = voice_combobox.get()
     speed = True if speed_combobox.get() == "slow" else False
     
     # Check if the user submitted inputs
@@ -56,12 +57,25 @@ def text_to_speech():
         if os.path.exists('output.mp3'):
              os.remove('output.mp3')
         speech.save("output.mp3")
+
+        if(voice != "Select voice"):
+            switcher = {
+            "Chipmunk": ChipmunkVoice(),
+            "Robot": RobotVoice()
+            }
+            switcher.get(voice, "nothing")
         
-        playsound("output.mp3")
+        else: playsound("output.mp3")
     
     except Exception as e:
         messagebox.showerror(message=f"Error: {str(e)}")
 
+def ChipmunkVoice():
+
+    return
+def RobotVoice():
+    
+    return
 #List the supported languages and their keys
 def list_languages():
     # Lấy danh sách các ngôn ngữ và mã từ gtts.langs
