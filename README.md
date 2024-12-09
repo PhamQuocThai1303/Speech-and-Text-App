@@ -19,6 +19,7 @@ Chuyển đổi giọng nói thành văn bản với ngôn ngữ hỗ trợ Ti�
 Đọc file âm thanh đầu vào và chuyển đổi thành text, hỗ trợ Tiếng Việt và Tiếng Anh
 4. Translate text
 Dịch văn bản với nhiều loại ngôn ngữ khác nhau
+5. Voice changer: Chọn được nhiều kiểu voice khác nhau
 
 ## Giao diện chính
 
