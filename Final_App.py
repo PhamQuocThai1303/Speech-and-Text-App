@@ -57,7 +57,6 @@ def text_to_speech():
         if os.path.exists('output.mp3'):
              os.remove('output.mp3')
         speech.save("output.mp3")
-
         if(voice != "Select voice"):
             switcher = {
             "Chipmunk": ChipmunkVoice(),
@@ -114,7 +113,7 @@ def update_speed_value(event):
 def update_voice_value(event):
     selected_voice = voice_combobox.get()
     if selected_voice:
-        speed_combobox.set(selected_voice)
+        voice_combobox.set(selected_voice)
 
 def show_speech_to_text():
     # Hàm dừng nhận diện
